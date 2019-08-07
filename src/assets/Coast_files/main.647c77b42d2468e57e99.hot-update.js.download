@@ -1,0 +1,262 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/Pages/Home/middle.js":
+/*!**********************************!*\
+  !*** ./src/Pages/Home/middle.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Middle; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Assets_img_dev9_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Assets/img/dev9.png */ "./src/Assets/img/dev9.png");
+/* harmony import */ var _Assets_img_dev9_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_dev9_png__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Assets_img_cell_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Assets/img/cell.svg */ "./src/Assets/img/cell.svg");
+/* harmony import */ var _Assets_img_cell_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_cell_svg__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Assets_img_pen_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Assets/img/pen.svg */ "./src/Assets/img/pen.svg");
+/* harmony import */ var _Assets_img_pen_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_pen_svg__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Assets_img_web_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Assets/img/web.svg */ "./src/Assets/img/web.svg");
+/* harmony import */ var _Assets_img_web_svg__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_web_svg__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Assets/img/more.svg */ "./src/Assets/img/more.svg");
+/* harmony import */ var _Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Assets_img_next_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Assets/img/next.svg */ "./src/Assets/img/next.svg");
+/* harmony import */ var _Assets_img_next_svg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_next_svg__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Assets_img_prev_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Assets/img/prev.svg */ "./src/Assets/img/prev.svg");
+/* harmony import */ var _Assets_img_prev_svg__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_prev_svg__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Assets_img_circle_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Assets/img/circle.png */ "./src/Assets/img/circle.png");
+/* harmony import */ var _Assets_img_circle_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_Assets_img_circle_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "C:\\Users\\LEONARDO\\Documents\\Reactjs\\coast\\src\\Pages\\Home\\middle.js";
+
+
+
+
+
+
+
+
+
+
+class Middle extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      image: _Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5___default.a,
+      size: "60%" // }
+
+    };
+  }
+
+  componentDidMount() {
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()(".menu_drag_wrapper").click(() => {
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".menu_full_back").fadeToggle();
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".menu_full_aba_1").animate({
+        width: "toggle"
+      }, 300);
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".logo").toggleClass('logo_toggle');
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".bar_1").toggleClass('rotate');
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".bar_2").toggleClass('rotate_b');
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()(".menu_full_back").click(() => {
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".menu_full_back").fadeToggle();
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".menu_full_aba_1").animate({
+        width: "toggle"
+      }, 300);
+      jquery__WEBPACK_IMPORTED_MODULE_9___default()(".logo").toggleClass('logo_toggle');
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c1").hover(() => {
+      setTimeout(() => {
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c1 img").toggleClass("display_img");
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c1").toggleClass("scale");
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c1").toggleClass("back_circle");
+      }, 300);
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c2").hover(() => {
+      setTimeout(() => {
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c2 img").toggleClass("display_img");
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c2").toggleClass("scale");
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c2").toggleClass("back_circle");
+      }, 300);
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c3").hover(() => {
+      setTimeout(() => {
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c3 img").toggleClass("display_img");
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c3").toggleClass("scale");
+        jquery__WEBPACK_IMPORTED_MODULE_9___default()(".c3").toggleClass("back_circle");
+      }, 300);
+    });
+  }
+
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "middle_wrapper",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "info_project",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "project_wrapper",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "type",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77
+      },
+      __self: this
+    }, "PRO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "name_project",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78
+      },
+      __self: this
+    }, "PROJECT NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "button_project",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79
+      },
+      __self: this
+    }, "conhe\xE7a oprojeto"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "project",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 83
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "more_circle c1",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 86
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: _Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5___default.a,
+      width: "60%",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 87
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "more_circle circle_b c2",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 91
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: _Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5___default.a,
+      width: "60%",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 92
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "circle-meio pulse",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 95
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "element-animation",
+      src: _Assets_img_dev9_png__WEBPACK_IMPORTED_MODULE_1___default.a,
+      width: "150%",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 96
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "more_circle c3",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 99
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: _Assets_img_more_svg__WEBPACK_IMPORTED_MODULE_5___default.a,
+      width: "60%",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100
+      },
+      __self: this
+    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "properties",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 112
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "menu_drag_wrapper",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 116
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "drag_bars",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bar_1",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 118
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bar_2",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 119
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bar_3",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 120
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "menu_name",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 122
+      },
+      __self: this
+    }, "Menu"))));
+  }
+
+}
+
+/***/ })
+
+})
+//# sourceMappingURL=main.647c77b42d2468e57e99.hot-update.js.map
