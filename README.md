@@ -1,4 +1,4 @@
 # Music app 
-## react native
-## Redux
-## Styled components
+##### react native
+##### Redux
+##### Styled components
