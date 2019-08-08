@@ -1,8 +1,8 @@
-export const  timeMusic = (seconds) =>{
+export const  timeMusic = (segundos) =>{
 
     return{
         type:'TIME_MUSIC',
-        payload:seconds
+        payload:segundos
     }
 }
 
@@ -28,4 +28,26 @@ export const volume = (volume) =>{
         payload:volume
     }   
 
+}
+
+export const buttonPlay = ()=>{
+    return{
+        type:'PRESS_BUTTON',
+        payload:false,
+    }
+}
+
+
+export const buttonPause = ()=>{
+    return{
+        type:'PRESS_BUTTON_PAUSE',
+        payload:true,
+    }
+}
+
+export const minutosCont = (minutos) =>{
+    return{
+        type:'MINUTOS',
+        payload:minutos
+    }
 }

@@ -1,29 +1,22 @@
 import React from 'react';
 
-import {
-    Container,
-    SliderWrapper,
-    Slider,
-    Time,
-    CurrentTimeWrapper,
+import {Container,SliderWrapper,Slider,Time} from './styles'
 
-} from './styles'
-
-import { timeMusic} from '../../redux/actions/playerAction';
+import { timeMusic,minutosCont} from '../../redux/actions/playerAction';
 import { connect} from 'react-redux';
 
 const TimerMusic = (props) =>{
 
-    setInterval(()=>{
+  setInterval(()=>{
         sound.getCurrentTime((seconds)=>{
-            props.timeMusic(parseInt(seconds));
+          props.timeMusic(parseInt(seconds));
         });
       },1000);
 
     return(
         <Container>
         <SliderWrapper>
-        <Time>{props.currentTimePlayer}</Time>
+        <Time>{props.minutos}:{props.currentTimePlayer}</Time>
         <Slider
         step={0}
         maximumValue={sound.getDuration()}
@@ -32,18 +25,17 @@ const TimerMusic = (props) =>{
         minimumTrackTintColor="#14142c"
         thumbTintColor="#14142c"
         />
-          <Time>{parseInt(sound.getDuration())}</Time>
+        <Time>{parseInt(sound.getDuration())}</Time>
         </SliderWrapper>
         </Container>
     );
 }
-
 const mapStateToProps = state => ({
     currentTimePlayer: state.PlayerReducer.currentTimePlayer,
     durationMusic:state.PlayerReducer.durationMusic,
-
+    minutos:state.PlayerReducer.minutos
   });
-
 export default connect(mapStateToProps,{
     timeMusic,
-  })(TimerMusic);;
+    minutosCont
+})(TimerMusic);;

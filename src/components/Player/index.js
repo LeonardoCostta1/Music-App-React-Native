@@ -17,8 +17,8 @@ import {
     NextButton,
     PlayButton,
     PrevButton,
-    SliderVol,
-    SliderVolumeWrapper
+    Loop
+
 } from './styles'
 
 import { Animated } from 'react-native';
@@ -29,7 +29,7 @@ import audio from '../../assets/one.mp3'
 
 import { connect} from 'react-redux';
 
-import { timeMusic,togglePlay,togglePause,volume } from '../../redux/actions/playerAction';
+import { timeMusic,togglePlay,togglePause,volume,buttonPlay,buttonPause } from '../../redux/actions/playerAction';
 
 
 sound = new Sound(audio, Sound.MAIN_BUNDLE, (error) => {
@@ -41,50 +41,43 @@ sound = new Sound(audio, Sound.MAIN_BUNDLE, (error) => {
 
 const Player = (props) =>{
 
-  
-let isPlaying = 0;
 
-  adinatar = ()=>{
-    sound.getCurrentTime((seconds) =>{
-      sound.setCurrentTime(seconds += 10);
-    });
-    }
-    
-    voltar = ()=>{
-      sound.getCurrentTime((seconds) =>{
-        sound.setCurrentTime(seconds -= 10) 
-    });
-    }
-
-      play = ()=>{
-        if(isPlaying == 0){
-          _onPressPlay();
-          isPlaying = 1;
-          props.togglePlay();
+    play = ()=>{
+    if(props.isPlaying === true){
+      sound.play((success) => {
+        if (success) {
+          sound.stop();
+          sound.getCurrentTime((seconds) =>{
+          sound.setCurrentTime(seconds = 0);
+          });
+          props.togglePause();
+        } else {
+         alert('playback failed due to audio decoding errors');
+ 
         }
-       else{
-            sound.pause();
-            isPlaying = 0;
-            props.togglePause();
-        }
+      });
+      props.togglePlay();
+      props.buttonPlay();
+    }
+    else{
+      sound.pause();
+      props.togglePause();
+      props.buttonPause();
       }
-      _onPressPlay=()=>{
-        sound.play((success) => {
-          if (success) {
-            alert('successfully finished playing');
-            sound.stop();
-          } else {
-           alert('playback failed due to audio decoding errors');
-           sound.pause();
-          }
-        });
+    }
+
+    adinatar = ()=>{
+      sound.getCurrentTime((seconds) =>{
+      sound.setCurrentTime(seconds += 10);
+      });
+      }
+
+      voltar = ()=>{
+        sound.getCurrentTime((seconds) =>{
+        sound.setCurrentTime(seconds -= 10) 
+      });
       }
  
-      sound.getSystemVolume((volume)=>{
-         parseFloat(props.volume((volume * 100)));
-
-      });
-
     // ANIMATION VIEW
     
   let offset = 0;
@@ -117,22 +110,23 @@ let isPlaying = 0;
         offset = 0;
       }
 
-Animated.timing(translateY,{
-  toValue: opened ? 520 : 0,
-  duration:1000,
-  useNativeDriver:true,
+      Animated.timing(translateY,{
+        toValue: opened ? 520 : 0,
+        duration:300,
+        useNativeDriver:true,
 
-}).start(()=>{
-  offset = opened ? 520 : 0;
-  translateY.setOffset(offset);
-  translateY.setValue(0)
-});
+      }).start(()=>{
+        offset = opened ? 520 : 0;
+        translateY.setOffset(offset);
+        translateY.setValue(0)
+      });
 
 
     }
   }
-
+ 
    return(
+     
        <>
        <PanGestureHandler
       onGestureEvent={animatedEvent}
@@ -147,44 +141,47 @@ Animated.timing(translateY,{
                 extrapolate:'clamp'
               }),
           }],
-          }}
-        
-        >
+          }}>
             <Bar/>
+           
             <CoverWrapper onPress={()=>{this._onPressPause()}}>
                 <Cover source={require('../../assets/ariana.jpg')}/>
             </CoverWrapper>
 
-            <TimerMusic/>
+       
+
         
             <InfoArtistWrapper>
                 <Music>{props.musicName}</Music>
                 <Artist>{props.artista}</Artist>
             </InfoArtistWrapper>
 
+            <Loop>
+              <View onPress={()=>{sound.setLoops()}} style={{width:20, marginLeft:50,marginRight:50}}>
+              <Icon name="ios-repeat" size={20} color="#000"/>
+              </View>
+            
+              <View style={{width:20, marginLeft:20,marginRight:20}}>
+              <Icon name="ios-heart" size={20} color="#000"/>
+              </View>
+
+              <View style={{width:20,marginLeft:50,marginRight:50}}>
+              <Icon name="ios-shuffle" size={20} color="#000"/>
+              </View>
+  
+              </Loop>
+
+            <TimerMusic/>
             <PlayerWrapper>
-                <NextButton onPress={()=>{this.voltar()}} > <Icon name="ios-rewind" size={20} color="#14142c"/> </NextButton>
+                <NextButton onPress={()=>{this.voltar()}} > <Icon name="ios-rewind" size={20} color="#000"/> </NextButton>
                 <PlayButton onPress={()=>{this.play()}}>
                     <View style={styles.icon} >
-                    <Icon name={props.PlayIcon} size={20} color="#14142c"/>
+                    <Icon name={props.PlayIcon} size={20} color="#000"/>
                     </View>
                 </PlayButton>
-                <PrevButton onPress={()=>{this.adinatar()}}><Icon name="ios-fastforward" size={20} color="#14142c"/> </PrevButton>
+                <PrevButton onPress={()=>{this.adinatar()}}><Icon name="ios-fastforward" size={20} color="#000"/> </PrevButton>
             </PlayerWrapper>
-            <SliderVolumeWrapper>
-            <Icon name="ios-volume-mute" size={20} color="#ccc"/>
-                    <SliderVol
-                        step={0.1}
-                        minimumValue = { 0.0 }
-                        maximumValue = { 1.0 }
-                        value={parseFloat((props.volumeSystem).toFixed(1))}
-                        minimumTrackTintColor="#14142c"
-                        thumbTintColor="#14142c"
-                        onValueChange={(vol) => sound.setSystemVolume(vol)}
-                        />
-                        <Icon name="ios-volume-high" size={20} color="#ccc"/>
-            </SliderVolumeWrapper>
- 
+
         </Container>
         </PanGestureHandler>
         </>
@@ -209,7 +206,8 @@ const mapStateToProps = state => ({
   durationMusic:state.PlayerReducer.durationMusic,
   musicName:state.PlayerReducer.musicName,
   PlayIcon:state.PlayerReducer.PlayIcon,
-  volumeSystem:state.PlayerReducer.volume
+  volumeSystem:state.PlayerReducer.volume,
+  isPlaying: state.PlayerReducer.isPlaying,
   
 });
 
@@ -217,5 +215,7 @@ export default connect(mapStateToProps,{
   timeMusic,
   togglePlay,
   togglePause,
-  volume
+  volume,
+  buttonPlay,
+  buttonPause
 })(Player);

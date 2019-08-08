@@ -4,6 +4,7 @@ import {StatusBar} from 'react-native';
 
 import Player from '../../components/Player'
 import Menu from '../../components/Menu'
+import Playlist from '../../components/Playlist'
 
 
 
@@ -15,10 +16,11 @@ import { Container} from './style';
 
     return (
     <>
-    <StatusBar barStyle="light-content" backgroundColor="#14142c" />
+    <StatusBar barStyle="dark-content" backgroundColor="#fff" />
     <Container>
       <Menu/>
       <Player/>
+      <Playlist/>
       </Container> 
     </>
     );
